@@ -1,3 +1,5 @@
+package sequence;
+
 public class Sequence {
 
     public static int tri(int n) {
@@ -5,7 +7,7 @@ public class Sequence {
     }
 
     public static int lazy(int n) {
-        return (n*n + n + 2)/2;
+        return tri(n) + 1;
     }
 
     public static void main(String[] args) {
@@ -19,7 +21,7 @@ public class Sequence {
         if (!seq.equals("lazy") && !seq.equals("tri")) {
             System.exit(1);
         }
-        
+
         try {
             int n = Integer.parseInt(args[1]);
             if (seq.equals("lazy")) {

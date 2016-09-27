@@ -1,7 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'application'
 
-mainClassName = "Sequence"
+mainClassName = "sequence.Sequence"
 
 repositories {
    mavenCentral()
@@ -11,17 +11,24 @@ dependencies {
   testCompile 'junit:junit:4.12'
 }
 
-task monkey << {
-  String x = "monkey"
-  10.times {
-    println x.reverse()
-  }
+task demo << {
+    println "Integer Sequence Demo"
+
+    5.times { n ->
+        int tri = n*(n+1)/2
+        printf("Tri(%d) = %d%n", n, tri)
+    }
+
+    5.times { n ->
+        int lazy = n*(n+1)/2 + 1
+        printf("Lazy(%d) = %d%n", n, lazy)
+    }
 }
 
 run {
     try {
-    systemProperties System.getProperties()
-    args System.getProperty("args").split()
+        systemProperties System.getProperties()
+        args System.getProperty("args").split()
     } catch (Exception e) {
     }
 }
