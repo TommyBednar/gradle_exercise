@@ -1,0 +1,27 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = "Sequence"
+
+repositories {
+   mavenCentral()
+}
+
+dependencies {
+  testCompile 'junit:junit:4.12'
+}
+
+task monkey << {
+  String x = "monkey"
+  10.times {
+    println x.reverse()
+  }
+}
+
+run {
+    try {
+    systemProperties System.getProperties()
+    args System.getProperty("args").split()
+    } catch (Exception e) {
+    }
+}
